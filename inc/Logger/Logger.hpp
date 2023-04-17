@@ -1,10 +1,12 @@
+#ifndef __LOGGER_H__
+#define __LOGGER_H__
 #include <iostream>
 #include <fstream>
 #include <sstream>
 #include <chrono>
 #include <iomanip>
 
-typedef enum{ DEBUG, INFO, WARNING, ERROR, FATAL} Level;
+typedef enum {DEBUG, INFO, WARNING, ERROR, FATAL} Level;
 
 class Logger
 {
@@ -23,3 +25,5 @@ private:
     Level minLevel_;
     std::string levelToString(Level level);
 };
+
+#endif // __LOGGER_H__
