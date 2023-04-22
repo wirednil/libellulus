@@ -9,6 +9,10 @@ const char* const Default = "";
 
 void Logger::log(Level level, const std::string& message, const char* file, const char* function, int line) 
 {
+    int width = 7;
+    int lvlStrSize = levelToString(level).length();
+    int left_padding = (width - lvlStrSize);
+    int right_padding = 0;
     if (level >= minLevel_)
     {
         auto now = std::chrono::system_clock::now();
@@ -18,8 +22,8 @@ void Logger::log(Level level, const std::string& message, const char* file, cons
         std::string timeStamp = ss.str();
 
         std::stringstream logStream;
-        logStream << "[" << timeStamp << "] "
-                  << "[" << levelToString(level) << "] "
+        logStream << "" << timeStamp << " | "
+                  << "" << std::setw(left_padding) << "" << levelToString(level) << std::setw(right_padding) << "|"
                   << "[" << file << ":" << line << " " << function << "] "
                   << message << std::endl;
 

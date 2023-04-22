@@ -1,13 +1,15 @@
 #include <cstdarg>
+#include "macros.h"
 #include "WLogger.h"
+#include "Logger.hpp"
 
 static Logger* logger = nullptr;
 void init_logger(std::ostream& outStream, Level minLevel);
 void log_message(Level level, const char* message, const char* file, const char* function, int line);
 
 
-void wrapper_logger(Level level, const char* fmt, 
-    const char* file, int line, const char* func, va_list args) 
+void wrapper_logger(Level level, const char* func, 
+    const char* file, int line, const char* fmt, ...) 
 {
     va_list args;
     va_start(args, fmt);
