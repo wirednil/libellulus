@@ -1,0 +1,12 @@
+# ignore vscode config
+.vscode
+
+# ignore objets
+*.o
+
+# ignore linkers
+*.so*
+
+# ignore files binaries
+main
+cxmain
