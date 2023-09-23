@@ -17,7 +17,7 @@
 SRC_DIR		= ./src
 INC_DIR		= ./inc
 OBJ_DIR		= ./obj
-LSO_DIR		= ./lso
+LIB			=  /LSRC
 TEST		= ./test
 
 # Module list
@@ -30,11 +30,7 @@ CXX			=	g++
 INCLUDES	=	-I$(INC_DIR) -I$(INC_DIR)/Logger
 FLAGS		=	-O0 -Wall -Wextra -g -fPIC
 LIBNAME 	=	-Wl,-soname,libelus.so.1.0
-LIBSO 		=	./lib/libelus.so.1.0
-LIB			=	./lib
-
-# Export LD_LIBRARY_PATH variable
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:./lib
+LIBSO 		=	$(LIB)/libelus.so.1.0
 
 # Rules of construction of shared librarie
 install: $(OBJ_LIST)
@@ -56,10 +52,10 @@ cxmain:
 
 # Rule to clean all generated objects and library
 clean:
-	rm -rf obj/*.o lib/libelus.*
+	rm -rf obj/*.o $(LIB)/libelus.* ./main  
 
 # Create symbolic links for libelus.so.1.0
 .PHONY: links
 links:
-	ln -sf ${LSRC}/lib/libelus.so.1.0 ${LSRC}/lib/libelus.so.1
-	ln -sf ${LSRC}/lib/libelus.so.1 ${LSRC}/lib/libelus.so
+	ln -sf $(LIB)/libelus.so.1.0 $(LIB)/libelus.so.1
+	ln -sf $(LIB)/libelus.so.1   $(LIB)/libelus.so

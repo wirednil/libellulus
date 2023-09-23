@@ -7,6 +7,9 @@ static Logger* logger = nullptr;
 void init_logger(std::ostream& outStream, Level minLevel);
 void log_message(Level level, const char* message, const char* file, const char* function, int line);
 
+void wrapper_init(Level level){
+    init_logger(std::cerr, level);
+}
 
 void wrapper_logger(Level level, const char* func, 
     const char* file, int line, const char* fmt, ...) 
@@ -16,7 +19,6 @@ void wrapper_logger(Level level, const char* func,
     char buffer[1024];
     vsnprintf(buffer, sizeof(buffer), fmt, args);
     va_end(args);
-    init_logger(std::cerr, level);
     log_message(level, buffer, file, func, line);
 }
 

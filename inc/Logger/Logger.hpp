@@ -58,7 +58,7 @@ public:
 
 private:
     std::ostream& outStream_; /**< The output stream to which log messages will be written. */
-    Level minLevel_;          /**< The minimum severity level of messages that will be logged. */
+    Level minLevel_ = Level::DEBUG;          /**< The minimum severity level of messages that will be logged. */
 
     /**
      * @brief Converts a severity level to its string representation.
