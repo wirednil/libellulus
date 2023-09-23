@@ -16,6 +16,8 @@
 extern "C" {
 #endif
 
+void wrapper_init(Level level);
+
 /**
  *
  * @brief Logs a message with a specified severity level, function name, file name, line number and format string.
