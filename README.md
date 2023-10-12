@@ -1,5 +1,5 @@
 # libellulus
-Libellulus es una biblioteca de registro (logger) simple para aplicaciones escritas en C++. Proporciona una forma fácil y flexible de registrar información en tiempo de ejecución para ayudar en la depuración y diagnóstico de problemas en tu aplicación.
+"Libellulus" is a simple logging library for C++ applications. It offers an easy and flexible way to record runtime information to assist in debugging and diagnosing issues within your application.
 
 ## Compilation
 To compile the source files, the C++ compiler `g++` and the C compiler `gcc` are used. The `-fPIC` flag is used to generate position-independent objects. The generated library file is stored in the `lib` directory.
@@ -28,11 +28,10 @@ chmod +x vars.sh
 
 2. Run the script to set up the necessary environment variables for the project:
 This script will:
-
-Create the lib and obj directories if they don't exist.
-Create the /LSRC directory if it doesn't exist.
-Set the LD_LIBRARY_PATH environment variable to include the /LSRC directory.
-Set the LSRC environment variable to the current working directory.
+- Create the lib and obj directories if they don't exist.
+- Create the /LSRC directory if it doesn't exist.
+- Set the LD_LIBRARY_PATH environment variable to include the /LSRC directory.
+- Set the LSRC environment variable to the current working directory.
 
 ## Usage
 1. Run `make install` to build the shared library.
